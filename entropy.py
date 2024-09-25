@@ -5,11 +5,8 @@ import time
 import numpy as np
 import os
 
-# max attempts
 max_attempts = 5000
-# private key length. Example: 512, 1024, 2048, 4096 and beyond
 key_length = 1024
-# Entropy threshold, if the script surpasses this value, it stops.
 entropy_goal = 5.995
 current_time = time.time()
 timestamp = time.strftime("%Y%m%d%H%M%S", time.localtime(current_time))
@@ -50,7 +47,7 @@ while True:
     if entropy > highest_entropy:
         highest_entropy = entropy
         with open(log_file, "a") as f:
-            f.write(f"Entropy: {entropy:.3f}\n")
+            f.write(f"Entropy: {entropy:.3f} - attempt {attempts:03d}\n")
             f.write(private_key.private_bytes(
                 encoding=serialization.Encoding.PEM,
                 format=serialization.PrivateFormat.TraditionalOpenSSL,
