@@ -8,5 +8,5 @@ pip install cryptography numpy
 
 ## Usage
 ```
-python entropy.py
+python ./entropy.py
 ```
